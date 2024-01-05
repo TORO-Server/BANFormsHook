@@ -4,15 +4,35 @@ function getText(text) {
 }
 
 // DiscordのWebhookを使って Discordにメッセージを送信する
-function sendDiscord(payload) {
+function sendDiscord(json) {
   UrlFetchApp.fetch(WebhookURL, {
     method: "post",
     contentType: "application/json",
-    payload: JSON.stringify(payload),
+    payload: json,
   });
 }
 
 // 現在の時間を取得
-function getTime() {
-  return Utilities.formatDate(new Date(), "GMT+9", "yyyy-MM-dd HH:mm:ss");
+function getTime(response) {
+  return response.getTimestamp().toISOString();
+}
+
+// フィールド作成
+function createFields(response) {
+  // フィールド初期化
+  let fields = [];
+
+  // アイテムレスポンス取得
+  const itemResponses = response.getItemResponses();
+
+  // フィールドの内容 生成
+  for (const itemRes of itemResponses) {
+    fields.push({
+      name: itemRes.getItem().getTitle(),
+      value: getText(`${itemRes.getResponse()}`),
+      inline: false,
+    });
+  }
+
+  return fields;
 }
