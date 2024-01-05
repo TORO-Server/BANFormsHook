@@ -9,7 +9,7 @@ function getForms(e) {
   const payload = JSON.stringify({
     embeds: [
       {
-        color: 8008641,
+        color: Color,
         timestamp: getTime(res),
         fields: fields,
       },
