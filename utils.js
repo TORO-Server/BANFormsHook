@@ -12,7 +12,7 @@ function sendDiscord(json) {
   });
 }
 
-// 現在の時間を取得
+// フォームの回答を送信した時間を取得
 function getTime(response) {
   return response.getTimestamp().toISOString();
 }
