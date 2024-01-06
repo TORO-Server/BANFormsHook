@@ -2,7 +2,7 @@ function getForms(e) {
   // レスポンス取得
   const res = e.response;
 
-  // フィールド初期化
+  // フィールド作成
   let fields = createFields(res);
 
   // Discord に送信する json 作成
