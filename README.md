@@ -1,6 +1,6 @@
-# BANFormsHook
+# GoogleFormsHook
 
-処罰解除申請の回答を自動で Discord に送信する Google Apps Script
+Googleフォームの回答を自動で Discord に送信する Google Apps Script
 
 ## ファイルの説明
 
